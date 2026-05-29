@@ -14,8 +14,8 @@ server implementations regardless of source IP or port.
 
 ## Why this plugin
 
-Wireshark 3.6 and later include native HASSH fields (`ssh.kex_hassh`,
-`ssh.kex_hasshserver`), but this plugin backports the computation to any Wireshark
+Wireshark 3.6 and later include native HASSH fields (`ssh.kex.hassh`,
+`ssh.kex.hasshserver`), but this plugin backports the computation to any Wireshark
 version that has Lua support enabled. It
 also appends `[HASSH: <hash>]` or `[hasshServer: <hash>]` annotations to the Info
 column for at-a-glance identification, and exposes the raw algorithm strings as
