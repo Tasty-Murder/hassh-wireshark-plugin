@@ -97,8 +97,8 @@ local function dissect(tvb, pinfo, tree)
 end
 
 function hassh_proto.dissector(tvb, pinfo, tree)
-  -- Defensive: never let a malformed packet crash the dissector.
-  pcall(dissect, tvb, pinfo, tree)
+  local ok, err = pcall(dissect, tvb, pinfo, tree)
+  if not ok then warn("hassh dissector error: " .. tostring(err)) end
 end
 
 register_postdissector(hassh_proto)
