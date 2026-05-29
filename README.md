@@ -82,9 +82,15 @@ non-standard SSH ports (neither endpoint is 22), both `hassh.fingerprint` and
 
 1. Edit → Preferences → Columns
 2. Click **+** to add a new column
-3. Set **Type** to `Custom`
-4. Set **Field name** to `hassh.fingerprint`
-5. Repeat for `hassh.server_fingerprint` if desired
+3. Set **Title** to whatever you want displayed (e.g., `HASSH`)
+4. Set **Type** to `Custom`
+5. In the field expression box (labeled **Custom Expression** in Wireshark 4.x,
+   **Fields** in older versions), enter `hassh.fingerprint`
+6. Click **OK**
+7. Repeat with `hassh.server_fingerprint` for a second column
+
+The column will only show a value on SSH KEXINIT packets (message code 20). All
+other packets will show blank — this is expected.
 
 ### Color rules
 
