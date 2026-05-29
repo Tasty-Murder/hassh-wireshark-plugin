@@ -73,8 +73,8 @@ Decoded fields appear in the **HASSH** subtree inside each SSH KEXINIT packet.
 | `hassh.algorithms`          | Raw algorithm string used for client hash   |
 | `hassh.server_algorithms`   | Raw algorithm string used for server hash   |
 
-Direction is determined by port: packets with `dst_port == 22` are treated as client
-KEXINIT; packets with `src_port == 22` are treated as server KEXINIT. On
+Direction is determined by port: packets with `tcp.dstport == 22` are treated as client
+KEXINIT; packets with `tcp.srcport == 22` are treated as server KEXINIT. On
 non-standard SSH ports (neither endpoint is 22), both `hassh.fingerprint` and
 `hassh.server_fingerprint` are emitted on the same KEXINIT packet.
 
