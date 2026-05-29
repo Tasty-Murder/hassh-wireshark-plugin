@@ -16,6 +16,11 @@ case "$OS" in
     ;;
 esac
 
+if [ ! -f hassh.lua ] || [ ! -f lib/md5.lua ]; then
+  echo "Error: Run this script from the project root (where hassh.lua lives)." >&2
+  exit 1
+fi
+
 mkdir -p "$DEST/lib"
 cp hassh.lua "$DEST/"
 cp lib/md5.lua "$DEST/lib/"

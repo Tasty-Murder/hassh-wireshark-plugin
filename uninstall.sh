@@ -16,5 +16,9 @@ case "$OS" in
     ;;
 esac
 
-rm -rf "$DEST"
-echo "Uninstalled from: $DEST"
+if [ -d "$DEST" ]; then
+  rm -rf "$DEST"
+  echo "Uninstalled from: $DEST"
+else
+  echo "Nothing to uninstall: $DEST does not exist."
+fi

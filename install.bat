@@ -3,6 +3,11 @@ setlocal
 
 set "DEST=%APPDATA%\Wireshark\plugins\hassh"
 
+if not exist "hassh.lua" (
+    echo Error: Run this script from the project root (where hassh.lua lives^).
+    exit /b 1
+)
+
 if not exist "%DEST%" mkdir "%DEST%"
 if not exist "%DEST%\lib" mkdir "%DEST%\lib"
 
