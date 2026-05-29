@@ -1,6 +1,9 @@
 # OMC state
 .omc/
 
+# Local Claude instructions (not for repo)
+CLAUDE.local.md
+
 # Packet captures
 *.pcap
 *.pcapng
