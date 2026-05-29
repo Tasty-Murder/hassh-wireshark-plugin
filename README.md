@@ -14,8 +14,9 @@ server implementations regardless of source IP or port.
 
 ## Why this plugin
 
-Wireshark 4.x includes native HASSH fields, but only for recent builds. This plugin
-backports the computation to any Wireshark version that has Lua support enabled. It
+Wireshark 3.6 and later include native HASSH fields (`ssh.kex_hassh`,
+`ssh.kex_hasshserver`), but this plugin backports the computation to any Wireshark
+version that has Lua support enabled. It
 also appends `[HASSH: <hash>]` or `[hasshServer: <hash>]` annotations to the Info
 column for at-a-glance identification, and exposes the raw algorithm strings as
 dedicated fields for deeper inspection and filtering.
@@ -73,14 +74,16 @@ Decoded fields appear in the **HASSH** subtree inside each SSH KEXINIT packet.
 | `hassh.server_algorithms`   | Raw algorithm string used for server hash   |
 
 Direction is determined by port: packets with `dst_port == 22` are treated as client
-KEXINIT; packets with `src_port == 22` are treated as server KEXINIT.
+KEXINIT; packets with `src_port == 22` are treated as server KEXINIT. On
+non-standard SSH ports (neither endpoint is 22), both `hassh.fingerprint` and
+`hassh.server_fingerprint` are emitted on the same KEXINIT packet.
 
 ### Adding a HASSH column
 
 1. Edit → Preferences → Columns
 2. Click **+** to add a new column
 3. Set **Type** to `Custom`
-4. Set **Fields** to `hassh.fingerprint`
+4. Set **Field name** to `hassh.fingerprint`
 5. Repeat for `hassh.server_fingerprint` if desired
 
 ### Color rules
