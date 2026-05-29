@@ -101,4 +101,6 @@ function hassh_proto.dissector(tvb, pinfo, tree)
   if not ok then warn("hassh dissector error: " .. tostring(err)) end
 end
 
-register_postdissector(hassh_proto)
+-- true = epan_set_always_visible: forces a real tree on every packet so
+-- custom columns (hassh.fingerprint, hassh.server_fingerprint) are populated.
+register_postdissector(hassh_proto, true)
