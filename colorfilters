@@ -1,0 +1,4 @@
+# HASSH Wireshark color rules
+# To import: open Wireshark → View → Coloring Rules → Import → select this file
+@SSH KEXINIT (client)@hassh.fingerprint@[65535,65535,65535][16705,26985,57825]
+@SSH KEXINIT (server)@hassh.server_fingerprint@[65535,65535,65535][8738,35723,8738]
