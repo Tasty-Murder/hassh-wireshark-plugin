@@ -1,0 +1,7 @@
+# OMC state
+.omc/
+
+# Packet captures
+*.pcap
+*.pcapng
+*.cap
