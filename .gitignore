@@ -5,3 +5,13 @@
 *.pcap
 *.pcapng
 *.cap
+
+# Editor artifacts
+*.swp
+*.swo
+*.lua~
+.DS_Store
+
+# Lua compiled output
+luac.out
+*.luac
