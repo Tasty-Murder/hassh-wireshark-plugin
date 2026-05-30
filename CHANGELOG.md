@@ -1,3 +1,8 @@
+## [0.1.5] - 2026-05-30
+
+### 📚 Documentation
+
+- Include full version history in CHANGELOG
 ## [0.1.4] - 2026-05-29
 
 ### 🐛 Bug Fixes
